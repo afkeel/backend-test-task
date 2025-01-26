@@ -1,18 +1,17 @@
 <?php
 
-namespace Raketa\BackendTestTask\View;
+namespace Raketa\BackendTestTask\Resource;
 
 use Raketa\BackendTestTask\Repository\Entity\Product;
 use Raketa\BackendTestTask\Repository\ProductRepository;
 
-readonly class ProductsView
+class ProductCollection
 {
     public function __construct(
-        private ProductRepository $productRepository
-    ) {
-    }
+        private array $items,
+    ) {}
 
-    public function toArray(string $category): array
+    public function toArray(): array
     {
         return array_map(
             fn (Product $product) => [
@@ -23,7 +22,7 @@ readonly class ProductsView
                 'thumbnail' => $product->getThumbnail(),
                 'price' => $product->getPrice(),
             ],
-            $this->productRepository->getByCategory($category)
+            $this->items
         );
     }
 }

@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace Raketa\BackendTestTask\Repository\Entity;
 
-readonly class Product
+readonly final class Product
 {
     public function __construct(
         private int $id,

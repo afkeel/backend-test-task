@@ -2,9 +2,9 @@
 
 declare(strict_types = 1);
 
-namespace Raketa\BackendTestTask\Domain;
+namespace Raketa\BackendTestTask\Repository\Entity;
 
-final readonly class Customer
+readonly final class Customer
 {
     public function __construct(
         private int $id,
